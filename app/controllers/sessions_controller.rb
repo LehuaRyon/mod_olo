@@ -11,9 +11,13 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to pizzas_path
+      redirect_to user_path(user)
+      # redirect_to pizzas_path
+      # , notice: "You have successfully logged in!"
     else
-      render :new
+      flash[:message] = 'Login attempt for a nonexistent user. Please try again.'
+      redirect_to login_path
+      # , alert: "Login attempt for a nonexistent user. Please try again."
     end
   end
 

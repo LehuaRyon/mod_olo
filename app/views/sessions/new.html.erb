@@ -1,11 +1,15 @@
 <h1>Login Here:</h1>
 
+<%= flash[:message] if flash[:message] %>
+
 <%= form_with url: login_path do |f| %>
     <%= f.label :email %>
     <%= f.email_field :email %>
-
+    <br>
+    <br>
     <%= f.label :password %>
     <%= f.password_field :password %>
-
+    <br>
+    <br>
     <%= f.submit 'Login' %>
 <% end %>
