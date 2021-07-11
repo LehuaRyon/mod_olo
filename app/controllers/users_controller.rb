@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     end
 
     def show
-
+        # redirect_to root_path if !@user
+        # protection pso user never sees error page
     end
 
     def edit
