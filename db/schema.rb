@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2021_07_06_005227) do
     t.string "name"
     t.text "ingredients"
     t.string "size"
-    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

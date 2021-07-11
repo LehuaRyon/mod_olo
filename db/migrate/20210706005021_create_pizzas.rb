@@ -4,7 +4,7 @@ class CreatePizzas < ActiveRecord::Migration[6.1]
       t.string :name
       t.text :ingredients
       t.string :size
-      t.float :price
+      
 
       t.timestamps
     end

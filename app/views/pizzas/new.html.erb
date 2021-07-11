@@ -1,1 +1,17 @@
 <h1>Create Your Own Pizza</h1>
+
+<%= form_with model: @pizza do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <br>
+    <%= f.label :ingredients %>
+    <%= f.text_area :ingredients %>
+    <br>
+    <br>
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+    <br>
+    <br>
+    <%= f.submit 'Create Pizza' %>
+<% end %>
