@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    # before_action :redirect_if_not_logged_in, except: [:new, :create]
     before_action :set_user, except: [:new, :create]
 
     def new
@@ -20,8 +21,10 @@ class UsersController < ApplicationController
     end
 
     def show
-        # redirect_to root_path if !@user
-        # protection pso user never sees error page
+        redirect_if_not_logged_in
+        # @user = User.find_by_id(params[:id])
+        redirect_to root_path if !@user
+        # protection so user never sees error page
     end
 
     def edit
