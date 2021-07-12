@@ -1,6 +1,10 @@
 class PizzasController < ApplicationController
     before_action :redirect_if_not_logged_in
 
+    def index
+        @pizzas = Pizza.all
+    end
+    
     def new
         @pizza = Pizza.new
     end
