@@ -1,0 +1,13 @@
+<h1><%= @pizza.name %></h1>
+
+<h2>Size:</h2>
+<p><%= @pizza.size %></p>
+
+<h2>Ingredients:</h2>
+<p><%= @pizza.ingredients %></p>
+
+<% #if @pizza.order.user == current_user %>
+<% #if current_user == @pizza.user %>
+    <%= link_to 'Edit Pizza', edit_pizza_path(@pizza) %> |
+    <%= link_to 'Delete Pizza', pizza_path(@pizza), method: :delete %>
+<% end %>
