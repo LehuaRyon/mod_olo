@@ -11,7 +11,7 @@ class PizzasController < ApplicationController
     end
 
     def create
-        @pizza = current_user.pizzas.build(pizza_params)
+        @pizza = current_user.pizzas.build(pizza_params) #change bc order is the join model, change to norm
         if @pizza.save
             redirect_to pizza_path(@pizza)
         else

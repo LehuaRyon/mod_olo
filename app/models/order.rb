@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :pizza #, optional: true
+  belongs_to :pizza , optional: true
   accepts_nested_attributes_for :user
   accepts_nested_attributes_for :pizza
   validates :pickup_name, :special_instructions, presence: true
