@@ -41,10 +41,10 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:pickup_name, :special_instructions)
+        params.require(:order).permit(:pickup_name, :special_instructions, :pizza_id)
     end
 
-    def set_pizza
+    def set_order
         @order = Order.find_by_id(params[:id])
         if !@order
             redirect_to orders_path
