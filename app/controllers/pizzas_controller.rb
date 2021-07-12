@@ -33,6 +33,11 @@ class PizzasController < ApplicationController
         end
     end
 
+    def destroy
+        @pizza.destroy
+        redirect_to pizzas_path
+    end
+
     private
 
     def pizza_params
