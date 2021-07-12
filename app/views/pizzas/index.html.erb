@@ -1,1 +1,18 @@
 <h1>All Pizzas:</h1>
+
+<ol>
+    <% @pizzas.each do |pizza| %>
+    <li>
+        <%= pizza.size %>
+        <%= link_to pizza.name, pizza_path(pizza) %> |
+        <% #if current_user == pizza.user %>
+            <%= link_to 'Edit Pizza', edit_pizza_path(pizza) %> |
+            <%= link_to 'Delete Pizza', pizza_path(pizza), method: :delete %>
+        <% #end %>
+        <br>
+        <%= pizza.ingredients %>
+        <br>
+        <br>
+    </li>
+    <% end %>
+</ol>
