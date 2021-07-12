@@ -25,6 +25,14 @@ class PizzasController < ApplicationController
     def edit
     end
 
+    def update
+        if @pizza.update(pizza_params)
+            redirect_to pizza_path(@pizza)
+        else
+            render :edit
+        end
+    end
+
     private
 
     def pizza_params
