@@ -46,5 +46,8 @@ class PizzasController < ApplicationController
 
     def set_pizza
         @pizza = Pizza.find_by_id(params[:id])
+        if !@pizza
+            redirect_to pizzas_path
+        end
     end
 end
