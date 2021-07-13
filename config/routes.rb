@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
-  resources :pizzas 
+  resources :users
   resources :orders
-  resources :users do
-    resources :orders, only: [:index, :show, :new, :create]
+  resources :pizzas do
+     resources :orders, only: [:index, :show, :new, :create]
   end
+  # resources :users do
+  #   resources :orders, only: [:index, :show, :new, :create]
+  # end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
