@@ -5,7 +5,7 @@
     <li>
         <%= pizza.size %>
         <%= link_to pizza.name, pizza_path(pizza) %> |
-        <% #if current_user == pizza.user %>
+        <% #if current_user == pizza.order.user %>
             <%= link_to 'Edit Pizza', edit_pizza_path(pizza) %> |
             <%= link_to 'Delete Pizza', pizza_path(pizza), method: :delete %>
         <% #end %>

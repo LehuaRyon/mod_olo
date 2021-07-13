@@ -9,7 +9,13 @@
             <%= link_to 'Delete Order', order_path(order), method: :delete %>
         <% end %>
         <br>
-        <%= order.special_instructions %>
+        Size: <%= order.pizza.size %>
+        <br>
+        Pizza: <%= order.pizza.name %>
+        <br>
+        Purchaser: <%= order.user.first_name %> <%= order.user.last_name %>
+        <br>
+        Special Instructions: <%= order.special_instructions %>
         <br>
         <br>
     </li>
