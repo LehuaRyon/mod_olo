@@ -6,6 +6,8 @@
 <h2>Ingredients:</h2>
 <p><%= @pizza.ingredients %></p>
 
+<p><%= link_to 'See All Orders', pizza_orders_path(@pizza) %> |
+
 <% #if @pizza.order.user == current_user %>
 <% #if current_user == @pizza.user %>
     <%= link_to 'Edit Pizza', edit_pizza_path(@pizza) %> |
