@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :orders
   resources :pizzas do
-     resources :orders, only: [:index, :show, :new, :create]
+     resources :orders, only: [:index, :new]
   end
   # resources :users do
   #   resources :orders, only: [:index, :show, :new, :create]
