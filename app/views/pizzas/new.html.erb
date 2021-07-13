@@ -1,6 +1,6 @@
 <h1>Create Your Own Pizza</h1>
 
-<% render partial: 'layouts/errors', locals: {object: @pizza} %>
+<%= render partial: 'layouts/errors', locals: {object: @pizza} %>
 
 <%= form_with model: @pizza do |f| %>
     <%= f.label :name %>
