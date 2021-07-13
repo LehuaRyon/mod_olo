@@ -3,7 +3,11 @@ class OrdersController < ApplicationController
     before_action :set_order, except: [:index, :new, :create]
 
     def index
-        @orders = Order.all
+        if params[:pizza_id] && pizza = Pizza.find_by_id(params[:pizza_id])
+            @orders = pizza.orders
+        else
+            @orders = Order.all
+        end
     end
     
     def new
