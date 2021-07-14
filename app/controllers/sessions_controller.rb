@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       # redirect_to pizzas_path
       # , notice: "You have successfully logged in!"
     else
-      flash[:message] = 'Login attempt for a nonexistent user. Please try again.'
+      flash[:error] = 'Login attempt for a nonexistent user. Please try again.'
       redirect_to login_path
       # , alert: "Login attempt for a nonexistent user. Please try again."
     end

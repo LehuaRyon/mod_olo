@@ -3,6 +3,8 @@
 <ol>
     <% @orders.each do |order| %>
     <li>
+        Ordered at: <%= order.created_at.strftime('%l:%M %P, %B %d %Y') %>
+        <br>
         Pickup Name: <%= link_to order.pickup_name, order_path(order) %> |
         <% if current_user == order.user %>
             <%= link_to 'Edit Order', edit_order_path(order) %> |
