@@ -6,7 +6,11 @@ class OrdersController < ApplicationController
         if params[:pizza_id] && pizza = Pizza.find_by_id(params[:pizza_id])
             @orders = pizza.orders
         else
-            @orders = Order.order_by_created_at
+            if params[:search]
+                @orders = Order.search(params[:search]).order_by_created_at
+            else
+                @orders = Order.order_by_created_at
+            end
         end
     end
     
@@ -15,7 +19,6 @@ class OrdersController < ApplicationController
             @order = pizza.orders.build
         else
             @order = Order.new
-            # @order.build_pizza
         end
     end
 
@@ -50,7 +53,7 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:pickup_name, :special_instructions, :pizza_id)  #, pizza_attributes: [:name, :ingredients, :size])
+        params.require(:order).permit(:pickup_name, :special_instructions, :pizza_id, :search)  #, pizza_attributes: [:name, :ingredients, :size])
     end
 
     def set_order
