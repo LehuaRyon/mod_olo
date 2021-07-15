@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
             @orders = pizza.orders
         else
             if params[:search]
-                @orders = Order.search(params[:search]).order_by_created_at
+                @orders = Order.search_by_last_name(params[:search]).order_by_created_at
             else
                 @orders = Order.order_by_created_at
             end

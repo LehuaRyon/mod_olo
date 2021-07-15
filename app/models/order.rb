@@ -10,7 +10,7 @@ class Order < ApplicationRecord
   #   Order.order(created_at: :desc)
   # end
 
-  def self.search(search)
+  def self.search_by_last_name(search)
     last_name = User.find_by(last_name: search)
     if last_name
       self.where(user_id: last_name)
