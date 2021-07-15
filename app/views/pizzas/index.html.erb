@@ -1,5 +1,11 @@
 <h1>All Pizzas:</h1>
 
+<%= form_with url: pizzas_path, method: :get do |form| %>
+  <%= form.label :search, "Search by pizza name:" %>
+  <%= form.text_field :search %>
+  <%= form.submit "Search" %>
+<% end %>
+
 <ol>
     <% @pizzas.each do |pizza| %>
     <li>

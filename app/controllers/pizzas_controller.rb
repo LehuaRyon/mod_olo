@@ -3,7 +3,11 @@ class PizzasController < ApplicationController
     before_action :set_pizza, except: [:index, :new, :create]
 
     def index
-        @pizzas = Pizza.all
+        if params[:search]
+            @pizzas = Pizza.search_by_pizza_name(params[:search])
+        else
+            @pizzas = Pizza.all
+        end
     end
     
     def new
