@@ -3,7 +3,7 @@ class PizzasController < ApplicationController
     before_action :set_pizza, except: [:index, :new, :create]
 
     def index
-        if params[:search]
+        if params[:search].present?
             @pizzas = Pizza.search_by_pizza_name(params[:search])
         else
             @pizzas = Pizza.all
@@ -45,7 +45,7 @@ class PizzasController < ApplicationController
     private
 
     def pizza_params
-        params.require(:pizza).permit(:name, :ingredients, :size)
+        params.require(:pizza).permit(:name, :ingredients, :size, :search)
     end
 
     def set_pizza
