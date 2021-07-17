@@ -1,12 +1,8 @@
-<% if @order.pizza %>
-  <h1>New Order for a <%= @order.pizza.name %> pizza!</h1>
-<% else %>
-  <h1>Order Now!</h1>
-<% end %>
+<h1>New Order for a <%= @order.pizza.name %> pizza!</h1>
 
 <%= render partial: 'layouts/errors', locals: {object: @order} %>
 
-<%= form_with model: ([@order.pizza, @order]) do |f| %>
+<%= form_with model: @order do |f| %>
     <%= f.label :pickup_name %>
     <%= f.text_field :pickup_name %>
     <br>
@@ -15,12 +11,8 @@
     <%= f.text_field :special_instructions %>
     <br>
     <br>
-    <% if !@order.pizza %>
-      <%= f.label :pizza_id, "Select a pizza:"%>
-      <%= f.collection_select :pizza_id, Pizza.all, :id, :name, prompt: true %>
-    <% else %>
-      <%= f.hidden_field :pizza_id %>
-    <% end %>
+    <%= f.label :pizza_id, "Select a pizza:"%>
+    <%= f.collection_select :pizza_id, Pizza.all, :id, :name, prompt: true %>
     <br>
     <% if !params[:pizza_id] %>
       <h2>Create Your Own Pizza:</h2>
