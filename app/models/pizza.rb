@@ -12,4 +12,8 @@ class Pizza < ApplicationRecord
     #         self.all
     #     end
     # end
+
+    def size_and_name
+        "#{size} #{name}"
+    end
 end

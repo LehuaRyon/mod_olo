@@ -12,7 +12,7 @@
     <br>
     <br>
     <%= f.label :pizza_id, "Select a pizza:"%>
-    <%= f.collection_select :pizza_id, Pizza.all, :id, :name, prompt: true %>
+    <%= f.collection_select :pizza_id, Pizza.order('name ASC'), :id, :size_and_name, prompt: true %>
     <br>
     <% if !params[:pizza_id] %>
       <h2>Create Your Own Pizza:</h2>
