@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
             @order = pizza.orders.build
         else
             @order = Order.new
+            @order.build_pizza
         end
     end
 
@@ -27,6 +28,7 @@ class OrdersController < ApplicationController
         if @order.save
             redirect_to order_path(@order)
         else
+            @order.build_pizza unless @order.pizza
             render :new
         end
     end
