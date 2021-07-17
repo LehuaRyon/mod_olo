@@ -22,6 +22,22 @@
       <%= f.hidden_field :pizza_id %>
     <% end %>
     <br>
+    <% if !params[:pizza_id] %>
+      <h2>Create Your Own Pizza:</h2>
+      <%= f.fields_for :pizza do |p| %>
+        <%= p.label :name %>
+        <%= p.text_field :name %>
+        <br>
+        <br>
+        <%= p.label :ingredients %>
+        <%= p.text_field :ingredients %>
+        <br>
+        <br>
+        <%= p.label :size %>
+        <%= p.select(:size, ["Mini (6-inch)", "Mod (11-inch)", "Mega (11-inch thick crust)"]) %>
+      <% end %>
+    <% end %>
+    <br>
     <br>
     <%= f.submit 'Submit Order' %>
 <% end %>
