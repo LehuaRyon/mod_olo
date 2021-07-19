@@ -26,6 +26,8 @@ gem 'omniauth'
 
 gem 'omniauth-github'
 
+gem 'omniauth-google-oauth2'
+
 gem 'dotenv-rails'
 
 # Use Active Storage variant
