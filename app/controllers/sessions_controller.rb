@@ -27,12 +27,13 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    @user = User.find_or_create_by(uid: auth[:uid]) do |u|
-      u.first_name = auth[:info][:first_name]
-      u.last_name = auth[:info][:last_name]
-      u.email = auth[:info][:email]
-      u.password = SecureRandom.hex(10)
-    end
+    @user = User.from_google_omniauth(auth)
+    # @user = User.find_or_create_by(uid: auth[:uid]) do |u|
+    #   u.first_name = auth[:info][:first_name]
+    #   u.last_name = auth[:info][:last_name]
+    #   u.email = auth[:info][:email]
+    #   u.password = SecureRandom.hex(10)
+    # end
     # if @user.valid?
       session[:user_id] = @user.id
       redirect_to user_path(@user)
