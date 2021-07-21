@@ -1,6 +1,8 @@
 class Pizza < ApplicationRecord
     has_many :orders, dependent: :destroy
     has_many :users, through: :orders
+    has_many :reviews
+    has_many :reviewers, through: :reviews, source: :reviewer
     has_one_attached :image
     validates :name, :ingredients, :size, presence: true
     validates_uniqueness_of :name, scope: :size
