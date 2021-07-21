@@ -32,6 +32,10 @@ class ReviewsController < ApplicationController
 
     private
 
+    def review_params
+        params.require(:review).permit(:stars, :content) #, :pizza_id
+    end
+
     def set_pizza
         @pizza = Pizza.find_by_id(params[:pizza_id])
         if !@pizza
