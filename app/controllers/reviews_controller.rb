@@ -3,7 +3,11 @@ class ReviewsController < ApplicationController
     before_action :set_pizza
 
     def index
-
+        if @pizza
+            @reviews = @pizza.reviews
+        else
+            redirect_to pizzas_path
+        end
     end
 
     def new
@@ -12,5 +16,14 @@ class ReviewsController < ApplicationController
 
     def create
 
+    end
+
+    private
+
+    def set_pizza
+        @pizza = Pizza.find_by_id(params[:pizza_id])
+        if !@pizza
+            redirect_to pizzas_path
+        end
     end
 end
