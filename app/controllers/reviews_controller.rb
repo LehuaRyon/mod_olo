@@ -11,7 +11,8 @@ class ReviewsController < ApplicationController
     end
 
     def new
-
+        # @review = Review.new(pizza: @pizza)
+        @review = @pizza.reviews.build
     end
 
     def create
