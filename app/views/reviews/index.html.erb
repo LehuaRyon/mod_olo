@@ -1,0 +1,13 @@
+<% if @pizza %>
+    <h1>All reviews for <%= @pizza.name %> pizza:</h1>
+<% else %>
+    <h1>All Reviews</h1>
+<% end %>
+
+<%= link_to 'Tap To Review This Pizza', new_pizza_review_path(@pizza) %> 
+
+<ol>
+    <% @reviews.each do |review| %>
+        <li><%= review.reviewer.first_name %> <%= review.reviewer.last_name %> gave this pizza a <strong><%= review.stars %>/5</strong> star rating - "<%= review.content %>"</li>
+    <% end %>
+</ol>
