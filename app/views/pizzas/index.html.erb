@@ -9,14 +9,10 @@
 <ol>
     <% @pizzas.each do |pizza| %>
     <li>
-        <%= pizza.size %>
-        <%= link_to pizza.name, pizza_path(pizza) %> |
-        <% #if current_user == pizza.order.user %>
-            <%= link_to 'Edit Pizza', edit_pizza_path(pizza) %> |
-            <%= link_to 'Delete Pizza', pizza_path(pizza), method: :delete %>
-        <% #end %>
+        <%= link_to pizza.name, pizza_path(pizza) %> - <%= pizza.ingredients %>
         <br>
-        <%= pizza.ingredients %>
+        <%= link_to 'Order This Pizza Now', new_pizza_order_path(pizza) %> |
+        <%= link_to 'Review This Pizza Now', new_pizza_review_path(pizza) %>
         <br>
         <br>
     </li>
