@@ -11,8 +11,12 @@
     <%= f.text_field :special_instructions %>
     <br>
     <br>
+    <%= f.label :size %>
+    <%= f.select(:size, ["Mini (6-inch)", "Mod (11-inch)", "Mega (11-inch thick crust)"]) %>
+    <br>
+    <br>
     <%= f.label :pizza_id, "Select a pizza:"%>
-    <%= f.collection_select :pizza_id, Pizza.all, :id, :name, prompt: true %>
+    <%= f.collection_select :pizza_id, Pizza.order('name ASC'), :id, :name_and_ingredients, prompt: true %>
     <br>
     <br>
     <%= f.submit 'Submit Edit' %>
