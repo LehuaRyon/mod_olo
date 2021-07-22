@@ -17,7 +17,7 @@
             <%= link_to 'Delete Order', order_path(order), method: :delete %>
         <% end %>
         <br>
-        Pizza: <%= order.pizza.name %>
+        Pizza: <%= link_to order.pizza.name, pizza_path(order.pizza) %>
         <br>
         Purchaser: <%= order.user.first_name %> <%= order.user.last_name %>
         <br>
