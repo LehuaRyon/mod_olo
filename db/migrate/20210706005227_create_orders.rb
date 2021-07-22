@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.belongs_to :pizza, null: false, foreign_key: true
       t.string :pickup_name
       t.text :special_instructions
+      t.string :size
 
       t.timestamps
     end

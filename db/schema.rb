@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_07_21_181210) do
     t.integer "pizza_id", null: false
     t.string "pickup_name"
     t.text "special_instructions"
+    t.string "size"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pizza_id"], name: "index_orders_on_pizza_id"
@@ -54,7 +55,6 @@ ActiveRecord::Schema.define(version: 2021_07_21_181210) do
   create_table "pizzas", force: :cascade do |t|
     t.string "name"
     t.text "ingredients"
-    t.string "size"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

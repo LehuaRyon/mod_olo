@@ -4,9 +4,8 @@ class Pizza < ApplicationRecord
     has_many :reviews
     has_many :reviewers, through: :reviews, source: :reviewer
     has_one_attached :image
-    validates :name, :ingredients, :size, presence: true
-    validates_uniqueness_of :name, scope: :size
-    # can have same name w/same ingredients but not same size for same name, figure out validation
+    validates :name, presence: true, uniqueness: true
+    validates :ingredients, presence: true
     scope :search_by_pizza_name, -> (search) {where("name LIKE ?", search)}
     # def self.search_by_pizza_name(search)
     #     name = self.find_by_name(search)
@@ -17,7 +16,7 @@ class Pizza < ApplicationRecord
     #     end
     # end
 
-    def size_and_name
-        "#{size} #{name}"
+    def name_and_ingredients
+        "#{name} - #{ingredients}"
     end
 end

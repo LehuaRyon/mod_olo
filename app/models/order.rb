@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :pizza
   # accepts_nested_attributes_for :pizza
-  validates :pickup_name, :special_instructions, :pizza_id, presence: true
+  validates :pickup_name, :special_instructions, :size, :pizza_id, presence: true
   # validates :special_instructions, allow_blank: true
     # when seeding data, allow_blank was not allowing seed
   validates_associated :pizza
