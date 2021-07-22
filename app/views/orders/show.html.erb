@@ -3,9 +3,12 @@
 <h2>Special Instructions:</h2>
 <p><%= @order.special_instructions %></p>
 
+<h2>Size:</h2>
+<p><%= @order.size %></p>
+
+<h2>Pizza ordered: <%= link_to @order.pizza.name, pizza_path(@order.pizza_id) %></h2>
+
 <% if current_user == @order.user %>
     <%= link_to 'Edit Order', edit_order_path(@order) %> |
     <%= link_to 'Delete Order', order_path(@order), method: :delete %>
 <% end %>
-
-<h2>See the pizza ordered here: <%= link_to @order.pizza.name, pizza_path(@order.pizza_id) %></h2>
