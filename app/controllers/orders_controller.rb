@@ -55,7 +55,7 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:pickup_name, :special_instructions, :search, :pizza_id, pizza_attributes: [:name, :ingredients, :size])
+        params.require(:order).permit(:pickup_name, :special_instructions, :size, :search, :pizza_id, pizza_attributes: [:name, :ingredients, :size])
     end
 
     def set_order
