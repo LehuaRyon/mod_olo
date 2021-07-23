@@ -48,10 +48,10 @@ class PizzasController < ApplicationController
         params.require(:pizza).permit(:name, :ingredients, :search)
     end
 
-    # def set_pizza
-    #     @pizza = Pizza.find_by_id(params[:id])
-    #     if !@pizza
-    #         redirect_to pizzas_path
-    #     end
-    # end
+    def set_pizza
+        @pizza = Pizza.find_by_id(params[:id])
+        if !@pizza
+            redirect_to pizzas_path
+        end
+    end
 end
