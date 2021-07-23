@@ -3,21 +3,7 @@
 <%= render partial: 'layouts/errors', locals: {object: @order} %>
 
 <%= form_with model: @order do |f| %>
-    <%= f.label :pickup_name %>
-    <%= f.text_field :pickup_name %>
-    <br>
-    <br>
-    <%= f.label :special_instructions %>
-    <%= f.text_field :special_instructions %>
-    <br>
-    <br>
-    <%= f.label :size %>
-    <%= f.select(:size, ["Mini (6-inch)", "Mod (11-inch)", "Mega (11-inch thick crust)"]) %>
-    <br>
-    <br>
-    <%= f.label :pizza_id, "Select a pizza:"%>
-    <%= f.collection_select :pizza_id, Pizza.order('name ASC'), :id, :name_and_ingredients, prompt: true %>
-    <br>
+    <%= render partial: 'form', locals: {order: f} %>
     <br>
     <%= f.submit 'Submit Edit' %>
 <% end %>
