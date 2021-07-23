@@ -3,12 +3,7 @@
 <%= render partial: 'layouts/errors', locals: {object: @pizza} %>
 
 <%= form_with model: @pizza do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br>
-    <br>
-    <%= f.label :ingredients %>
-    <%= f.text_field :ingredients %>
+    <%= render partial: 'form', locals: {pizza: f} %>
     <br>
     <br>
     <%= f.submit 'Create Pizza' %>
