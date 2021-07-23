@@ -11,17 +11,8 @@
     <%= f.text_field :last_name %>
     <br>
     <br>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <br>
-    <br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br>
-    <br>
-    <%= f.submit 'Sign Up' %>
+    <%= render partial: 'form', locals: {user: f, button_name: "Sign Up"} %>
 <% end %>
 
 <h2>Or Log In with Google:</h2>
-
 <%= button_to 'Google', '/auth/google_oauth2' %>
