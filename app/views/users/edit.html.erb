@@ -1,8 +1,7 @@
-<h1>Welcome <%= @user.first_name %> <%= @user.last_name %>!</h1>
+<h1>Edit <%= @user.first_name %> <%= @user.last_name %>'s Credentials Here:</h1>
 
-<h2>Email: <%= @user.email %></h2>
+<%= render partial: 'layouts/errors', locals: {object: @user} %>
 
-<% if current_user %>
-    <%= link_to 'Edit Credentials', edit_user_path(@user) %> |
-    <%= link_to 'Delete Account', user_path(@user), method: :delete %>
+<%= form_with model: @user do |f| %>
+    <%= render partial: 'form', locals: {user: f, button_name: "Submit Edit"} %>
 <% end %>
