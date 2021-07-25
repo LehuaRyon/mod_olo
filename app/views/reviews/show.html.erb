@@ -1,0 +1,7 @@
+<h1><%= @review.reviewer.first_name %> <%= @review.reviewer.last_name %>'s review for a <%= @pizza.name %> pizza:</h1>
+<h2>Star Rating: <strong><%= @review.stars %>/5</strong></h2>
+<h2>Critique: "<%= @review.content %>"</h2>
+<br>
+<% if %>
+    <%= image_tag url_for(@review.image) %>
+<% end %>

@@ -24,12 +24,17 @@ class ReviewsController < ApplicationController
         if @review.save
             @review.image.purge
             @review.image.attach(params[:review][:image])
-            redirect_to pizza_path(@review.pizza)
+            redirect_to pizza_review_path(@pizza, @review)
+            # redirect_to pizza_path(@review.pizza)
         else
             # set_pizza
             # @pizza.reviews.build
             render :new
         end
+    end
+
+    def show
+        @review = Review.find_by_id(params[:id])
     end
 
     private
