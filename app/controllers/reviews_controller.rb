@@ -22,6 +22,8 @@ class ReviewsController < ApplicationController
         # handling both associations at once, connected to pizza and user
         @review.pizza = @pizza
         if @review.save
+            @review.image.purge
+            @review.image.attach(params[:review][:image])
             redirect_to pizza_path(@review.pizza)
         else
             # set_pizza
@@ -33,7 +35,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:stars, :content, :image) #, :pizza_id
+        params.require(:review).permit(:stars, :content) # :image, :pizza_id
     end
 
     def set_pizza
