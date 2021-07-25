@@ -40,7 +40,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:stars, :content) # :image, :pizza_id
+        params.require(:review).permit(:stars, :content) # , :image, :pizza_id
     end
 
     def set_pizza

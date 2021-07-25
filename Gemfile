@@ -30,6 +30,7 @@ gem 'omniauth-rails_csrf_protection'
 
 gem 'dotenv-rails'
 
+gem 'aws-sdk-s3', require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

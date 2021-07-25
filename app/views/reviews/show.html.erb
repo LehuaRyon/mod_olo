@@ -2,6 +2,9 @@
 <h2>Star Rating: <strong><%= @review.stars %>/5</strong></h2>
 <h2>Critique: "<%= @review.content %>"</h2>
 <br>
-<% if %>
+<% if @review.image.attached? %>
     <%= image_tag url_for(@review.image) %>
-<% end %>
+<% end %> 
+<br>
+<br>
+<%= link_to 'All Reviews For This Pizza', pizza_reviews_path(@pizza) %> 
