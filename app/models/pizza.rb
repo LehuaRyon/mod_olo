@@ -3,7 +3,6 @@ class Pizza < ApplicationRecord
     has_many :users, through: :orders
     has_many :reviews
     has_many :reviewers, through: :reviews, source: :reviewer
-    has_one_attached :image
     validates :name, presence: true, uniqueness: true
     validates :ingredients, presence: true
     scope :search_by_pizza_name, -> (search) {where("name LIKE ?", search)}

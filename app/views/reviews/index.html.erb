@@ -8,6 +8,6 @@
 
 <ol>
     <% @reviews.each do |review| %>
-        <li><%= review.reviewer.first_name %> <%= review.reviewer.last_name %> gave this pizza a <strong><%= review.stars %>/5</strong> star rating - "<%= review.content %>"</li>
+        <li><%= review.reviewer.first_name %> <%= review.reviewer.last_name %> gave this pizza a <strong><%= review.stars %>/5</strong> star rating - "<%= review.content %>" <%= image_tag url_for(review.image) %></li>
     <% end %>
 </ol>
