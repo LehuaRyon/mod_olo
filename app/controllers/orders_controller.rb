@@ -37,6 +37,12 @@ class OrdersController < ApplicationController
     end
 
     def edit
+        if @order.user_id = current_user.id
+            render :edit
+        else
+            flash[:not_owner] = "You cannot make this change. You are not the owner."
+            redirect_to orders_path
+        end
     end
 
     def update
@@ -48,7 +54,7 @@ class OrdersController < ApplicationController
     end
 
     def destroy
-        @order.destroy
+        @order.destroy if @order.user.id == current_user.id
         redirect_to orders_path
     end
 
@@ -64,4 +70,11 @@ class OrdersController < ApplicationController
             redirect_to orders_path
         end
     end
+
+    # def redirect_if_not_authorized
+    #     if @order.user.id != current_user.id
+    #         flash[:not_owner] = "You cannot make this change. You are not the owner."
+    #         redirect_to orders_path
+    #     end
+    # end
 end
