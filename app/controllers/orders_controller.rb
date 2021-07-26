@@ -37,10 +37,10 @@ class OrdersController < ApplicationController
     end
 
     def edit
-        if @order.user_id = current_user.id
+        if @order.user_id == current_user.id
             render :edit
         else
-            flash[:not_owner] = "You cannot make this change. You are not the owner."
+            # flash[:error] = "You cannot make this change. You are not the owner."
             redirect_to orders_path
         end
     end
