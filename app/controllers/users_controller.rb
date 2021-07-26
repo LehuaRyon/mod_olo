@@ -26,9 +26,16 @@ class UsersController < ApplicationController
         # @user = User.find_by_id(params[:id])
         redirect_to root_path if !@user
         # protection so user never sees error page
+        @orders = current_user.orders
     end
 
     def edit
+        if @user.id == current_user.id
+            render :edit
+        else
+            # flash[:error] = "You cannot make this change. You are not the owner."
+            redirect_to user_path(@user)
+        end
     end
 
     def update
@@ -41,7 +48,7 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        @user.destroy
+        @user.destroy if @user.id == current_user.id
         redirect_to signup_path
     end
 

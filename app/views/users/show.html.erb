@@ -1,6 +1,25 @@
 <h1>Welcome <%= @user.first_name %> <%= @user.last_name %>!</h1>
 
-<% if current_user %>
+<% if current_user.id == @user.id %>
     <%= link_to 'Edit Credentials', edit_user_path(@user) %> |
     <%= link_to 'Delete Account', user_path(@user), method: :delete %>
+    <br>
+    <h2>All Your Orders:</h2>
+    <ol>
+        <% @orders.each do |order| %>
+        <li>
+            Ordered at: <%= order.created_at.strftime('%l:%M %P, %B %d, %Y') %>
+            <br>
+            Pickup Name: <%= link_to order.pickup_name, order_path(order) %> |
+            <%= link_to 'Edit Order', edit_order_path(order) %> |
+            <%= link_to 'Delete Order', order_path(order), method: :delete %>
+            <br>
+            Pizza: <%= link_to order.pizza.name, pizza_path(order.pizza) %>
+            <br>
+            Purchaser: <%= order.user.first_name %> <%= order.user.last_name %>
+            <br>
+            <br>
+        </li>
+        <% end %>
+    </ol>
 <% end %>
