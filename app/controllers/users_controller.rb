@@ -27,7 +27,7 @@ class UsersController < ApplicationController
         redirect_to root_path if !@user
         # protection so user never sees error page
         @orders = current_user.orders
-        @reviews = @user.reviews
+        @reviews = current_user.reviews
     end
 
     def edit

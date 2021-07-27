@@ -1,0 +1,19 @@
+<ol>
+    <% @orders.each do |order| %>
+        <li>
+            Ordered at: <%= order.created_at.strftime('%l:%M %P, %B %d, %Y') %>
+            <br>
+            Pickup Name: <%= link_to order.pickup_name, order_path(order) %> |
+            <% if current_user == order.user %>
+                <%= link_to 'Edit Order', edit_order_path(order) %> |
+                <%= link_to 'Delete Order', order_path(order), method: :delete %>
+            <% end %>
+            <br>
+            Pizza: <%= link_to order.pizza.name, pizza_path(order.pizza) %>
+            <br>
+            Purchaser: <%= order.user.first_name %> <%= order.user.last_name %>
+            <br>
+            <br>
+        </li>
+    <% end %>
+</ol>
