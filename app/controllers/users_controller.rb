@@ -66,5 +66,3 @@ class UsersController < ApplicationController
         @user = User.find_by_id(params[:id])
     end
 end
-
-a user cannot edit or deleete another user
