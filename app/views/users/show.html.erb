@@ -11,8 +11,10 @@
             Ordered at: <%= order.created_at.strftime('%l:%M %P, %B %d, %Y') %>
             <br>
             Pickup Name: <%= link_to order.pickup_name, order_path(order) %> |
-            <%= link_to 'Edit Order', edit_order_path(order) %> |
-            <%= link_to 'Delete Order', order_path(order), method: :delete %>
+            <% if current_user == order.user %>
+                <%= link_to 'Edit Order', edit_order_path(order) %> |
+                <%= link_to 'Delete Order', order_path(order), method: :delete %>
+            <% end %>
             <br>
             Pizza: <%= link_to order.pizza.name, pizza_path(order.pizza) %>
             <br>
@@ -21,5 +23,12 @@
             <br>
         </li>
         <% end %>
+    </ol>
+    <h2>All Your Reviews:</h2>  
+    <ol>
+    <% @reviews.each do |review| %>
+        <li><%= review.reviewer.first_name %> <%= review.reviewer.last_name %> gave the <%= review.pizza.name %> pizza a <strong><%= review.stars %>/5</strong> star rating - "<%= link_to review.content, pizza_review_path(review.pizza, review) %>"</li>
+        <br>
+    <% end %>
     </ol>
 <% end %>
