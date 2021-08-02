@@ -1,5 +1,7 @@
 <h1>All Pizzas:</h1>
 
+<%= flash[:pizza_not_found] %>
+
 <%= form_with url: pizzas_path, method: :get do |form| %>
   <%= form.label :search, "Search by pizza name:" %>
   <%= form.text_field :search %>

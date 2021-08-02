@@ -1,5 +1,7 @@
 <h1>Sign Up Here:</h1>
 
+<%= flash[:deleted_account] %>
+
 <%= render partial: 'layouts/errors', locals: {object: @user} %>
 
 <%= form_with model: @user, url: signup_path do |f| %>

@@ -5,8 +5,8 @@ class ReviewsController < ApplicationController
     def index
         if @pizza
             @reviews = @pizza.reviews
-        else
-            redirect_to pizzas_path
+        #else
+            #redirect_to pizzas_path
         end
     end
 
@@ -24,6 +24,7 @@ class ReviewsController < ApplicationController
         if @review.save
             @review.image.purge
             @review.image.attach(params[:review][:image])
+            flash[:review_created] = "Review has been submitted successfully!"
             redirect_to pizza_review_path(@pizza, @review)
             # redirect_to pizza_path(@review.pizza)
         else
@@ -46,6 +47,7 @@ class ReviewsController < ApplicationController
     def set_pizza
         @pizza = Pizza.find_by_id(params[:pizza_id])
         if !@pizza
+            flash[:pizza_not_found] = "Pizza does not exist."
             redirect_to pizzas_path
         end
     end

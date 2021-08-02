@@ -1,5 +1,8 @@
 <h1>All Orders:</h1>
 
+<%= flash[:cannot_change_orders] %>
+<%= flash[:order_not_found] %>
+
 <%= form_with url: orders_path, method: :get do |form| %>
   <%= form.label :search, "Search by purchaser's last name:" %>
   <%= form.text_field :search %>

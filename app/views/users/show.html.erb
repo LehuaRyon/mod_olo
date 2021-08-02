@@ -1,5 +1,8 @@
 <h1>Welcome <%= @user.first_name %> <%= @user.last_name %>!</h1>
 
+<%= flash[:cannot_change_user] %>
+<%= flash[:user_edited] %>
+<br>
 <% if current_user.id == @user.id %>
     <%= link_to 'Edit Credentials', edit_user_path(@user) %> |
     <%= link_to 'Delete Account', user_path(@user), method: :delete %>

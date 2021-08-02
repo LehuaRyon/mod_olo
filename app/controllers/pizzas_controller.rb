@@ -15,7 +15,7 @@ class PizzasController < ApplicationController
     end
 
     def create
-        @pizza = current_user.pizzas.build(pizza_params) #change bc order is the join model, change to norm
+        @pizza = current_user.pizzas.build(pizza_params)
         if @pizza.save
             redirect_to pizza_path(@pizza)
         else
@@ -51,6 +51,7 @@ class PizzasController < ApplicationController
     def set_pizza
         @pizza = Pizza.find_by_id(params[:id])
         if !@pizza
+            flash[:pizza_not_found] = "Pizza does not exist."
             redirect_to pizzas_path
         end
     end

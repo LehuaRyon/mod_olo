@@ -1,5 +1,8 @@
 <h1><%= @order.pickup_name %>'s Pizza Order</h1>
 
+<%= flash[:order_created] %>
+<%= flash[:order_edited] %>
+
 <h2>Special Instructions:</h2>
 <p><%= @order.special_instructions %></p>
 

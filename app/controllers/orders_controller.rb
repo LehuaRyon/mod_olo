@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
     def create
         @order = current_user.orders.build(order_params)
         if @order.save
+            flash[:order_created] = "Order has been placed successfully!"
             redirect_to order_path(@order)
         else
             @order.build_pizza unless @order.pizza
@@ -40,13 +41,14 @@ class OrdersController < ApplicationController
         if @order.user_id == current_user.id
             render :edit
         else
-            # flash[:error] = "You cannot make this change. You are not the owner."
+            flash[:cannot_change_orders] = "You cannot make this change. You are not the owner."
             redirect_to orders_path
         end
     end
 
     def update
         if @order.update(order_params)
+            flash[:order_edited] = "Order has been updated successfully!"
             redirect_to order_path(@order)
         else
             render :edit
@@ -68,6 +70,7 @@ class OrdersController < ApplicationController
     def set_order
         @order = Order.find_by_id(params[:id])
         if !@order
+            flash[:order_not_found] = "Order does not exist."
             redirect_to orders_path
         end
     end

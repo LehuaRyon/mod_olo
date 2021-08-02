@@ -1,8 +1,4 @@
-<% if @pizza %>
-    <h1>All reviews for <%= @pizza.name %> pizza:</h1>
-<% else %>
-    <h1>All Reviews</h1>
-<% end %>
+<h1>All reviews for <%= @pizza.name %> pizza:</h1>
 
 <%= link_to 'Tap To Review This Pizza', new_pizza_review_path(@pizza) %> 
 

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
         if @user.id == current_user.id
             render :edit
         else
-            # flash[:error] = "You cannot make this change. You are not the owner."
+            flash[:cannot_change_user] = "You cannot make this change. You are not the owner."
             redirect_to user_path(@user)
         end
     end
@@ -42,6 +42,7 @@ class UsersController < ApplicationController
     def update
         if @user.update(user_params(:email, :password))
         # if @user.update(user_params)
+            flash[:user_edited] = "Login information has been updated successfully!"
             redirect_to user_path(@user)
         else
             render :edit
@@ -49,8 +50,13 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        @user.destroy if @user.id == current_user.id
-        redirect_to signup_path
+        if @user.id == current_user.id
+            @user.destroy
+            flash[:deleted_account] = 'Account has been deleted. If you would like to order a pizza in the future, sign up again at any time.'
+            redirect_to signup_path
+        else
+            redirect_to user_path(@user)
+        end
     end
 
     private
@@ -65,5 +71,9 @@ class UsersController < ApplicationController
 
     def set_user
         @user = User.find_by_id(params[:id])
+        if !@user
+            flash[:user_not_found] = "User does not exist."
+            redirect_to root_path
+        end
     end
 end

@@ -1,6 +1,7 @@
 <h1>Log In Here:</h1>
 
-<%= flash[:error] %>
+<%= flash[:not_logged_in] %>
+<%= flash[:nonexistent_user] %>
 
 <%= form_with url: login_path do |f| %>
     <%= f.label :email %>
