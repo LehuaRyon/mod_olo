@@ -30,6 +30,8 @@ gem 'omniauth-rails_csrf_protection'
 
 gem 'dotenv-rails'
 
+gem "bulma-rails", '~> 0.8.0'
+
 gem 'aws-sdk-s3', require: false
 # Use Active Storage variant
 gem 'mini_magick', '~> 4.8'
