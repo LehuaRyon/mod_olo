@@ -1,5 +1,5 @@
-<h1>All reviews for <%= @pizza.name %> pizza:</h1>
+<h1 class='has-text-white is-family-secondary'>All reviews for <%= @pizza.name %> pizza:</h1>
 
-<%= link_to 'Tap To Review This Pizza', new_pizza_review_path(@pizza) %> 
+<%= link_to 'Tap To Review This Pizza', new_pizza_review_path(@pizza), class: 'button is-warning is-medium' %> 
 
 <%= render partial: 'iteration' %>

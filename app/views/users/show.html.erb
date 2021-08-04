@@ -4,8 +4,8 @@
 <%= flash[:user_edited] %>
 <br>
 <% if current_user.id == @user.id %>
-    <%= link_to 'Edit Credentials', edit_user_path(@user) %> |
-    <%= link_to 'Delete Account', user_path(@user), method: :delete %>
+    <%= link_to 'Edit Credentials', edit_user_path(@user), class: 'button is-warning' %> 
+    <%= link_to 'Delete Account', user_path(@user), method: :delete, class: 'button is-danger'%>
     <br>
     <h2>All Your Orders:</h2>
     <%= render partial: 'orders/iteration' %>

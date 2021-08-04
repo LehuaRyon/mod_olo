@@ -10,13 +10,12 @@
 
 <ol>
     <% @pizzas.each do |pizza| %>
-    <li>
-        <%= link_to pizza.name, pizza_path(pizza) %> - <%= pizza.ingredients %>
+    <li class='card has-text-white'>
+        <%= link_to pizza.name, pizza_path(pizza), class: 'button is-info is-small'%> <%= pizza.ingredients %>
         <br>
-        <%= link_to 'Order This Pizza Now', new_pizza_order_path(pizza) %> |
-        <%= link_to 'Review This Pizza Now', new_pizza_review_path(pizza) %>
-        <br>
-        <br>
+        <%= link_to 'Order This Pizza Now', new_pizza_order_path(pizza), class: 'button is-success is-small' %>
+        <%= link_to 'Review This Pizza Now', new_pizza_review_path(pizza), class: 'button is-info is-small' %>
+      
     </li>
     <% end %>
 </ol>

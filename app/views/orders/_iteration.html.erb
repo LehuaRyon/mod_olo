@@ -1,19 +1,17 @@
 <ol>
     <% @orders.each do |order| %>
-        <li>
+        <li class='card has-text-white'>
             Ordered at: <%= order.created_at.strftime('%l:%M %P, %B %d, %Y') %>
             <br>
-            Pickup Name: <%= link_to order.pickup_name, order_path(order) %> |
+            Pickup Name: <%= link_to order.pickup_name, order_path(order), class: 'button is-link is-small' %> 
             <% if current_user == order.user %>
-                <%= link_to 'Edit Order', edit_order_path(order) %> |
-                <%= link_to 'Delete Order', order_path(order), method: :delete %>
+                <%= link_to 'Edit Order', edit_order_path(order), class: 'button is-warning is-small'%> 
+                <%= link_to 'Delete Order', order_path(order), method: :delete, class: 'button is-danger is-small' %>
             <% end %>
             <br>
-            Pizza: <%= link_to order.pizza.name, pizza_path(order.pizza) %>
+            Pizza: <%= link_to order.pizza.name, pizza_path(order.pizza), class: 'button is-info is-small' %>
             <br>
             Purchaser: <%= order.user.first_name %> <%= order.user.last_name %>
-            <br>
-            <br>
         </li>
     <% end %>
 </ol>

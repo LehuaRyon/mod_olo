@@ -14,3 +14,7 @@
  *= require_self
  */
  @import "bulma";
+
+ .card {
+    background-color: rgb(136, 9, 9);
+}
