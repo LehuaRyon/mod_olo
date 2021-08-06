@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :orders, dependent: :destroy
   has_many :pizzas, through: :orders
-  has_many :reviews, foreign_key: "reviewer_id", class_name: "Review"
+  has_many :reviews, foreign_key: "reviewer_id", class_name: "Review", dependent: :destroy
   has_many :reviewed_pizzas, through: :reviews, source: :pizza
   validates :first_name, :last_name, :password_confirmation, presence: true
   validates :email, presence: true, uniqueness: true
