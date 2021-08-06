@@ -3,18 +3,18 @@
 <%= flash[:pizza_not_found] %>
 
 <%= form_with url: pizzas_path, method: :get do |form| %>
-  <%= form.label :search, "Search by pizza name:" %>
+  <%= form.label :search, "Search by pizza name:", class: 'has-text-warning	has-text-weight-bold' %>
   <%= form.text_field :search %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search", class: 'button is-warning is-small is-outlined has-text-weight-bold' %>
 <% end %>
 
 <ol>
     <% @pizzas.each do |pizza| %>
     <li class='card has-text-white'>
-        <%= link_to pizza.name, pizza_path(pizza), class: 'button is-info is-small'%> <%= pizza.ingredients %>
+        <%= link_to pizza.name, pizza_path(pizza), class: 'button is-info is-small has-text-weight-bold'%> <%= pizza.ingredients %>
         <br>
-        <%= link_to 'Order This Pizza Now', new_pizza_order_path(pizza), class: 'button is-success is-small' %>
-        <%= link_to 'Review This Pizza Now', new_pizza_review_path(pizza), class: 'button is-info is-small' %>
+        <%= link_to 'Order This Pizza Now', new_pizza_order_path(pizza), class: 'button is-success is-small is-outlined has-text-weight-bold' %>
+        <%= link_to 'Review This Pizza Now', new_pizza_review_path(pizza), class: 'button is-info is-small is-outlined has-text-weight-bold' %>
       
     </li>
     <% end %>

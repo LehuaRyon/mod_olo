@@ -15,6 +15,12 @@
  */
  @import "bulma";
 
+ body {
+    font-family: 'Helvetica Neue';
+    padding: 20px;
+}
+
  .card {
     background-color: rgb(136, 9, 9);
 }
+

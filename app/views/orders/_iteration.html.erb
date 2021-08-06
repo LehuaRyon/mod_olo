@@ -3,13 +3,13 @@
         <li class='card has-text-white'>
             Ordered at: <%= order.created_at.strftime('%l:%M %P, %B %d, %Y') %>
             <br>
-            Pickup Name: <%= link_to order.pickup_name, order_path(order), class: 'button is-link is-small' %> 
+            Pickup Name: <%= link_to order.pickup_name, order_path(order), class: 'button is-link is-small has-text-weight-bold' %> 
             <% if current_user == order.user %>
-                <%= link_to 'Edit Order', edit_order_path(order), class: 'button is-warning is-small'%> 
-                <%= link_to 'Delete Order', order_path(order), method: :delete, class: 'button is-danger is-small' %>
+                <%= link_to 'Edit Order', edit_order_path(order), class: 'button is-warning is-small is-outlined has-text-weight-bold'%> 
+                <%= link_to 'Delete Order', order_path(order), method: :delete, class: 'button is-danger is-small is-outlined has-text-weight-bold' %>
             <% end %>
             <br>
-            Pizza: <%= link_to order.pizza.name, pizza_path(order.pizza), class: 'button is-info is-small' %>
+            Pizza: <%= link_to order.pizza.name, pizza_path(order.pizza), class: 'button is-info is-small has-text-weight-bold' %>
             <br>
             Purchaser: <%= order.user.first_name %> <%= order.user.last_name %>
         </li>

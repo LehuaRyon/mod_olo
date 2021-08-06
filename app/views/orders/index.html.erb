@@ -4,9 +4,9 @@
 <%= flash[:order_not_found] %>
 
 <%= form_with url: orders_path, method: :get do |form| %>
-  <%= form.label :search, "Search by purchaser's last name:" %>
+  <%= form.label :search, "Search by purchaser's last name:", class: 'has-text-warning	has-text-weight-bold' %>
   <%= form.text_field :search %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search", class: 'button is-warning is-small is-outlined has-text-weight-bold' %>
 <% end %>
 
 <%= render partial: 'iteration' %>
