@@ -1,15 +1,15 @@
 <h1>Sign Up Here:</h1>
 
 <%= flash[:deleted_account] %>
-
+<br>
 <%= render partial: 'layouts/errors', locals: {object: @user} %>
 
 <%= form_with model: @user, url: signup_path do |f| %>
-    <%= f.label :first_name %>
+    <%= f.label :first_name, class: 'has-text-weight-bold has-text-light is-size-5' %>
     <%= f.text_field :first_name %>
     <br>
     <br>
-    <%= f.label :last_name %>
+    <%= f.label :last_name, class: 'has-text-weight-bold has-text-light is-size-5' %>
     <%= f.text_field :last_name %>
     <br>
     <br>
@@ -17,4 +17,5 @@
 <% end %>
 
 <h2>Or Log In with Google:</h2>
-<%= button_to 'Google', '/auth/google_oauth2' %>
+<%= button_to 'Google', '/auth/google_oauth2', class: 'button is-dark is-outlined has-text-weight-bold' %>
+<br>

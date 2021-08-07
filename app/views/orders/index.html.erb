@@ -2,7 +2,7 @@
 
 <%= flash[:cannot_change_orders] %>
 <%= flash[:order_not_found] %>
-
+<br>
 <%= form_with url: orders_path, method: :get do |form| %>
   <%= form.label :search, "Search by purchaser's last name:", class: 'has-text-warning	has-text-weight-bold' %>
   <%= form.text_field :search %>

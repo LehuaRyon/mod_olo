@@ -2,19 +2,19 @@
 
 <%= flash[:not_logged_in] %>
 <%= flash[:nonexistent_user] %>
-
+<br>
 <%= form_with url: login_path do |f| %>
-    <%= f.label :email %>
+    <%= f.label :email, class: 'has-text-weight-bold has-text-light is-size-5' %>
     <%= f.email_field :email %>
     <br>
     <br>
-    <%= f.label :password %>
+    <%= f.label :password, class: 'has-text-weight-bold has-text-light is-size-5' %>
     <%= f.password_field :password %>
     <br>
     <br>
-    <%= f.submit 'Log In' %>
+    <%= f.submit 'Log In', class: 'button is-dark is-outlined has-text-weight-bold' %>
 <% end %>
 
 <h2>Or Log In with Google:</h2>
-
-<%= button_to 'Google', '/auth/google_oauth2' %>
+<%= button_to 'Google', '/auth/google_oauth2', class: 'button is-dark is-outlined has-text-weight-bold' %>
+<br>

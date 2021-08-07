@@ -1,6 +1,6 @@
 <ol>
     <% @orders.each do |order| %>
-        <li class='card has-text-white'>
+        <li class='card has-text-light'>
             Ordered at: <%= order.created_at.strftime('%l:%M %P, %B %d, %Y') %>
             <br>
             Pickup Name: <%= link_to order.pickup_name, order_path(order), class: 'button is-link is-small has-text-weight-bold' %> 

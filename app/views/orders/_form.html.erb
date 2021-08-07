@@ -1,15 +1,16 @@
-<%= order.label :pickup_name %>
+<%= order.label :pickup_name, class: 'has-text-weight-bold has-text-light is-size-5' %>
 <%= order.text_field :pickup_name %>
 <br>
 <br>
-<%= order.label :special_instructions %>
+<%= order.label :special_instructions, class: 'has-text-weight-bold has-text-light is-size-5' %>
 <%= order.text_field :special_instructions %>
 <br>
 <br>
-<%= order.label :size %>
+<%= order.label :size, class: 'has-text-weight-bold has-text-light is-size-5' %>
 <%= order.select(:size, ["Mini (6-inch)", "Mod (11-inch)", "Mega (11-inch thick crust)"]) %>
 <br>
 <br>
-<%= order.label :pizza_id, "Select a pizza:"%>
+<%= order.label :pizza_id, "Select a pizza:", class: 'has-text-weight-bold has-text-light is-size-5' %>
 <%= order.collection_select :pizza_id, Pizza.order('name ASC'), :id, :name_and_ingredients, prompt: true %>
 <br>
+

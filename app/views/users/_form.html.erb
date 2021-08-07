@@ -1,13 +1,15 @@
-<%= user.label :email %>
+<%= user.label :email, class: 'has-text-weight-bold has-text-light is-size-5' %>
 <%= user.email_field :email %>
 <br>
 <br>
-<%= user.label :password %>
+<%= user.label :password, class: 'has-text-weight-bold has-text-light is-size-5' %>
 <%= user.password_field :password %>
 <br>
 <br>
-<%= user.label :password_confirmation %>
+<%= user.label :password_confirmation, class: 'has-text-weight-bold has-text-light is-size-5' %>
 <%= user.password_field :password_confirmation %>
 <br>
 <br>
-<%= user.submit button_name %>
+<%= user.submit button_name, class: 'button is-dark is-outlined has-text-weight-bold' %>
+<br>
+<br>

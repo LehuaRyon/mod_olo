@@ -12,29 +12,59 @@
   </head>
 
   <body class="section has-background-danger-dark">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img src="https://assets.simpleviewinc.com/simpleview/image/fetch/c_fill,h_396,q_75,w_704/https://assets.simpleviewinc.com/simpleview/image/upload/crm/sandysprings/Mod-pizza-logo-retina-resized-for-website-a9a432495056b3a_a9a43441-5056-b3a8-49befc35773884cb.png">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+    <div class="navbar-menu mt-3">
+      <div class="navbar-start">
+        <% if logged_in? %>
+          <strong class="has-text-danger-dark">Welcome <%= current_user.first_name %> <%= current_user.last_name %></strong>
+            <a class="navbar-item">
+              <%= link_to 'Profile', user_path(current_user) %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to 'Order Now', new_order_path %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to 'All Orders', orders_path %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to 'All Pizzas', pizzas_path %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to 'Logout', logout_path, method: :delete %>
+            </a>
+        <% else %>
+          <div class="navbar-end mb-3">
+            <div class="navbar-item">
+              <a class="navbar-item">
+                <%= link_to 'Home', root_path %>
+              </a>
+              <a class="navbar-item">
+                <%= link_to 'Sign Up', signup_path %>
+              </a>
+              <a class="navbar-item">
+                <%= link_to 'Login', login_path %>
+              </a>
+        <% end %>
+            </div>
+          </div>
+      </div>
+    </div>
+    </nav>
+    <br>
     <section>
       <div class="content">
-        <nav class="navbar is-light" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <a class="navbar-item">
-                <img src="https://assets.simpleviewinc.com/simpleview/image/fetch/c_fill,h_396,q_75,w_704/https://assets.simpleviewinc.com/simpleview/image/upload/crm/sandysprings/Mod-pizza-logo-retina-resized-for-website-a9a432495056b3a_a9a43441-5056-b3a8-49befc35773884cb.png">
-            </a>
-              <div>
-                <% if logged_in? %>
-                  <strong class="has-text-danger-dark">Welcome <%= current_user.first_name %> <%= current_user.last_name %></strong>
-                  <%= link_to 'Profile', user_path(current_user) %>
-                  <%= link_to 'Order Now', new_order_path %>
-                  <%= link_to 'All Orders', orders_path %>
-                  <%= link_to 'All Pizzas', pizzas_path %>
-                  <%= link_to 'Logout', logout_path, method: :delete %>
-                <% else %>
-                  <%= link_to 'Home', root_path %> 
-                  <%= link_to 'Sign Up', signup_path %>
-                  <%= link_to 'Login', login_path %>  
-                <% end %>
-              </div>  
-          </div>
-        </nav>
        <%= yield %>
         <footer class="footer is-light">
           <div class="content has-text-centered has-text-danger-dark">

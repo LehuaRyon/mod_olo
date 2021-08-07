@@ -1,6 +1,6 @@
 <ol>
     <% @reviews.each do |review| %>
-        <li class='card has-text-white'><%= review.reviewer.first_name %> <%= review.reviewer.last_name %> gave the <%= review.pizza.name %> pizza a <strong class='has-text-white'><%= review.stars %>/5</strong> star rating - "<%= link_to review.content, pizza_review_path(review.pizza, review), class: 'has-text-warning' %>"</li>
+        <li class='card has-text-light'><%= review.reviewer.first_name %> <%= review.reviewer.last_name %> gave the <%= review.pizza.name %> pizza a <strong class='has-text-light'><%= review.stars %>/5</strong> star rating - "<%= link_to review.content, pizza_review_path(review.pizza, review), class: 'has-text-warning' %>"</li>
         <br>
     <% end %>
 </ol>

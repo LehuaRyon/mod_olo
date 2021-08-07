@@ -5,5 +5,6 @@
 <%= form_with model: @order do |f| %>
     <%= render partial: 'form', locals: {order: f} %>
     <br>
-    <%= f.submit 'Submit Edit' %>
+    <%= f.submit 'Submit Edit', class: 'button is-dark is-outlined has-text-weight-bold' %>
 <% end %>
+<br>

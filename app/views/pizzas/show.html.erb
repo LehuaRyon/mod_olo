@@ -1,14 +1,42 @@
 <h1><%= @pizza.name %></h1>
 
 <h2>Ingredients:</h2>
-<p><%= @pizza.ingredients %></p>
+<article class="message is-dark">
+  <div class="message-body">
+    <%= @pizza.ingredients %>
+  </div>
+</article>
 
 <h2>Average Star Rating:</h2>
-<p><%= number_with_precision(@pizza.reviews.average_star_rating, :precision => 1) %></p>
+<article class="message is-dark">
+  <div class="message-body">
+    <%= number_with_precision(@pizza.reviews.average_star_rating, :precision => 1) %>
+  </div>
+</article>
 
-<%= link_to 'Review This Pizza Now', new_pizza_review_path(@pizza) %> |
-<%= link_to 'All Reviews For This Pizza', pizza_reviews_path(@pizza) %> 
-<br>
-<br>
-<%= link_to 'Order This Pizza Now', new_pizza_order_path(@pizza) %> |
-<%= link_to 'All Orders For This Pizza', pizza_orders_path(@pizza) %> 
+<div class="field has-addons">
+  <p class="control">
+    <button class="button is-warning is-medium has-text-weight-bold">
+        <i class="fas fa-align-left"></i>
+      <span><%= link_to 'Review This Pizza Now', new_pizza_review_path(@pizza), class: 'has-text-danger-dark' %></span>
+    </button>
+  </p>
+  <p class="control">
+    <button class="button is-warning is-medium has-text-weight-bold">
+        <i class="fas fa-align-center"></i>
+      <span><%= link_to 'All Reviews For This Pizza', pizza_reviews_path(@pizza), class: 'has-text-danger-dark' %></span>
+    </button>
+  </p>
+   <p class="control">
+    <button class="button is-warning is-medium has-text-weight-bold">
+        <i class="fas fa-align-center"></i>
+      <span><%= link_to 'Order This Pizza Now', new_pizza_order_path(@pizza), class: 'has-text-danger-dark' %></span>
+    </button>
+  </p>
+  <p class="control">
+    <button class="button is-warning is-medium has-text-weight-bold">
+        <i class="fas fa-align-right"></i>
+      <span><%= link_to 'All Orders For This Pizza', pizza_orders_path(@pizza), class: 'has-text-danger-dark' %></span>
+    </button>
+  </p>
+</div>

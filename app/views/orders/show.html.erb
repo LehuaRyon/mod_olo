@@ -2,10 +2,10 @@
 
 <%= flash[:order_created] %>
 <%= flash[:order_edited] %>
-
+<br>
 <% if current_user == @order.user %>
-    <%= link_to 'Edit Order', edit_order_path(@order), class: 'button is-warning is-medium has-text-weight-bold' %> 
-    <%= link_to 'Delete Order', order_path(@order), method: :delete, class: 'button is-danger is-medium has-text-weight-bold' %>
+    <%= link_to 'Edit Order', edit_order_path(@order), class: 'button is-warning is-outlined is-medium has-text-weight-bold' %> 
+    <%= link_to 'Delete Order', order_path(@order), method: :delete, class: 'button is-light is-outlined is-medium has-text-weight-bold' %>
 <% end %>
 
 <h2>Special Instructions:</h2>
@@ -19,13 +19,13 @@
 <h2>Size:</h2>
 <article class="message is-dark">
   <div class="message-body">
-    <p><%= @order.size %></p>
+    <%= @order.size %>
   </div>
 </article>
 
 <h2>Pizza ordered:</h2>
 <article class="message is-dark">
   <div class="message-body">
-    <%= link_to @order.pizza.name, pizza_path(@order.pizza_id), class: 'button is-black is-outlined' %>
+    <%= link_to @order.pizza.name, pizza_path(@order.pizza_id), class: 'button is-dark is-outlined' %>
   </div>
 </article>
