@@ -1,6 +1,6 @@
 <h1>Write a review for <%= @review.pizza.name %> pizza:</h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @review} %>
+<%= error(@review) %>
 
 <%= form_with model: [@pizza, @review] do |f| %>
     <%= f.hidden_field :pizza_id %>

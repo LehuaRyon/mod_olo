@@ -6,4 +6,10 @@ module ApplicationHelper
     def logged_in?
         current_user
     end
+
+    def error(object)
+        if object.errors.any?
+            render partial: 'layouts/errors', locals: {object: object}
+        end
+    end
 end

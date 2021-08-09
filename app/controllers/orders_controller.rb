@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
     end
 
     def update
-        if @order.update(order_params)
+        if @order.user_id == current_user.id && @order.update(order_params)
             flash[:order_edited] = "Order has been updated successfully!"
             redirect_to order_path(@order)
         else

@@ -2,7 +2,7 @@
 
 <%= flash[:deleted_account] %>
 <br>
-<%= render partial: 'layouts/errors', locals: {object: @user} %>
+<%= error(@user) %>
 
 <%= form_with model: @user, url: signup_path do |f| %>
     <%= f.label :first_name, class: 'has-text-weight-bold has-text-light is-size-5' %>

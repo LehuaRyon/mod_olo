@@ -15,6 +15,10 @@ class Pizza < ApplicationRecord
     #     end
     # end
 
+    def self.pizza_with_most_orders
+        self.joins(:orders).group(:pizza_id).order("count(orders.id) DESC").limit(1)
+    end
+
     def name_and_ingredients
         "#{name} - #{ingredients}"
     end

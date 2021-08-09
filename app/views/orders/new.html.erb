@@ -1,6 +1,6 @@
 <h1>New Order For A <%= @order.pizza.name %> Pizza!</h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @order} %>
+<%= error(@order) %>
 
 <%= form_with model: @order do |f| %>
   <%= render partial: 'form', locals: {order: f} %>

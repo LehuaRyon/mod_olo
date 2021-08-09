@@ -1,6 +1,6 @@
 <h1>Edit <%= @user.first_name %> <%= @user.last_name %>'s Credentials Here:</h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @user} %>
+<%= error(@user) %>
 
 <%= form_with model: @user do |f| %>
     <%= render partial: 'form', locals: {user: f, button_name: "Submit Edit"} %>
