@@ -10,8 +10,8 @@ To install and run the app on your local machine:
 2. From your terminal, run `git clone [paste the link from step 1]`
 3. Then run `cd mod_olo` to navigate to the mod_olo directory
 4. Run `bundle install` to install the necessary gems and dependencies
-5. Run `rake db:migrate` to perform the database migrations
-6. Run `rake db:seed` to fill the database with MOD's available classic pizzas
+5. Run `rails db:migrate` to perform the database migrations
+6. Run `rails db:seed` to fill the database with MOD's available classic pizzas
 7. Run `rails s` to start a local rails server
 8. Go to <a href="localhost:3000" target="_blank">localhost:3000</a> to view the app!
 
