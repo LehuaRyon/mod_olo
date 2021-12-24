@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import "bulma";
+ /* @import "bulma"; */
 
  body {
     font-family: 'Helvetica Neue';
